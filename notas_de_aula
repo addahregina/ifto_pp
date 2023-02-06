@@ -1,0 +1,8 @@
+SOLID
+SRP Princípio da responsabilidade única
+OCP Princípio aberto e fechado
+LSP (Liskov)
+- substituição de tipos não impacta o sistema
+- tipo collection não possui métodos remove e add, apenas consulta
+ISP - Princípio de segregação da interface
+DIP - Princípio da inversão de dependência (inversão vs injeção)

@@ -6,3 +6,34 @@ LSP (Liskov)
 - tipo collection não possui métodos remove e add, apenas consulta
 ISP - Princípio de segregação da interface
 DIP - Princípio da inversão de dependência (inversão vs injeção)
+
+
+//aula 13/fev
+#2 ♟Comportamental: Padrão Strategy 🌒 09/02 ☀️ 14/02
+Classe concreta é obrigada a utilizar todos os métodos, a classe abstrata não.
+
+IntelliJ -> Project -> Java -> Maven
+Implementar métodos para interface IntelliJ -> Alt Enter (Interface name) -> Implement Interface();
+
+Return to Interface -> Ctrl+Click (Interface name)
+
+Seta contínua - Implementada dentro da classe, atributo na origem;
+seta dupla: na origem tem atributo da classe de destino e vice-versa
+
+seta pontilhada - dependência não possui atributo da classe de destino
+notações UML
++ público
+- privado
+# protegido
+
+composição: um objeto dentro de outro objeto
+
+estrategista só relaciona-se com uma classe
+strategy : associar o strategista + n associações
+
+método de conveniência - como se fosse um atalho
+
+no construtor pode passar atributos ou não
+construtor padrão não tem parâmetros, caso seja criado um construtor com parâmentros, o outro diexa de existir
+
+CTRL ALT N - Refactor -> Inline -> instancia o objeto no local da chamada // é seguro se uilizada em apenas um local

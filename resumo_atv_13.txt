@@ -1,0 +1,100 @@
+o que você entendeu sobre o padrão Strategy; 
+para que ele serve; 
+quais vantagens e desvantagens.
+
+O padrão estrategy é baseado encapsulamento de partes de código a fim de permitir que sejam
+1.1. Definição
+
+blue_book"O padrão Strategy define uma família de algoritmos, encapsula cada um deles e os torna intercambiáveis. A estratégia deixa o algoritmo variar independentemente dos clientes que o utilizam" [UCPP].
+
+Em outras palavras, a partir de um conjunto de algoritmos, permite que classes possam trocar tais algoritmos por uma outra implementação, até mesmo em tempo de execução.
+1.2. Aplicabilidade
+
+Pode ser aplicado quando:
+
+    o comportamento de um método (implementação de um algoritmo) precisa ser diferente em classes distintas e/ou mudar em tempo de execução;
+
+    determinadas classes devem ter um comportamento específico (método) e outras não;
+
+    não deseja-se que uma alteração em uma super classe afete sub classes.
+
+
+
+A classe Estrategista é que que irá usar as estratégias, que são representadas pelas classes que implementam os comportamentos. Cada comportamento (estratégia) é normalmente definido como uma interface. Assim, podem existir N implementações de cada comportamento (diferentes estratégias).
+
+Perceba que a relação entre a Estrategista e os comportamentos não é herança, mas pode ser uma associação normal, composição ou agregação. Cada comportamento não é implementado como uma subclasse da Estrategista, cada tipo de comportamento estará contido como um atributo dentro da Estrategista. Por isso é comum representar como agregação/composição. Definindo o comportamento como atributo é que nos permite alterar em tempo de execução sua implementação.
+
+O comportamento em si é definido por um método na interface. No exemplo, o método é executarComportamentoA() para o ComportamentoA. O nome do método é o desenvolvedor quem define, normalmente sendo um nome que faça sentido para o sistema. A assinatura do método também é livre. Neste exemplo o método não recebe parâmetros e retorna um tipo genérico T. O tipo do retorno vai depender das suas necessidades. Veja os exemplos concretos na seção a seguir.
+
+Podem existir diferentes classes filhas desta Estrategista, cada uma fazendo uso diferente do resultado de um determinado comportamento. Com o padrão Strategy, o comportamento de qualquer classe (mãe ou filha) pode mudar em tempo de execução, de acordo com os requisitos do sistema.
+
+Um projeto de exemplo para o diagrama apresentado está disponível aqui. Ele deve ser alterado para incluir as mudanças necessárias para o problema específico que você estiver resolvendo com o padrão.
+1.4. Princípios utilizados
+
+    Favorecer composição no lugar de herança.
+
+    Programar para uma "interface" não uma implementação (GoF): declaramos variáveis com tipos abstratos (uma interface de comportamento) e usamos tipos concretos (uma classe que implementa um comportamento) apenas na instanciação.
+
+    Single Responsibility Principle (SRP) pois a classe que usa os comportamentos não tem a responsabilidade de implementar estes comportamentos. Adicionalmente, cada classe de comportamento é responsável por implementar um único comportamento. Se temos vários comportamentos, devemos ter várias classes.
+
+    Open/Closed Principle (OCP), pois separa as partes que mudam (os comportamentos) de dentro da classe que utiliza eles. Isto torna a classe "aberta para extensão e fechada para modificação" (em relação aos comportamentos).
+
+    Liskov Substitution Principle (LSP) pois podemos substituir um comportamento por qualquer implementação dele, de forma transparente, até mesmo em tempo de execução, sem que sejam necessárias alterações no código interno da classe que utiliza tais comportamentos.
+
+    Interface Segregation Principle (ISP), pois estamos definindo diferentes interfaces: uma para cada comportamento que pode ser implementado.
+
+vantagens
+
+
+
+A modelagem convencional de diferentes comportamentos sem a aplicação do padrão Strategy requer o uso de herança para os diferentes comportamentos e é visualmente mais simples. No entanto, tal implementação tem algumas características que podem ser um problema (ou não), dependendo dos requisitos do seu sistema, por não permitir:
+
+    alterar um comportamento em tempo de execução;
+
+    compartilhar implementações de um mesmo comportamento entre diferentes classes filhas, levando à duplicação de código (que deve ser evitado ao máximo);
+
+    combinar comportamentos distintos em um só, reaproveitando código.
+    
+    O padrão Strategy sugere que você pegue uma classe que faz algo específico em diversas maneiras diferentes e extraia todos esses algoritmos para classes separadas chamadas estratégias.
+
+A classe original, chamada contexto, deve ter um campo para armazenar uma referência para um dessas estratégias. O contexto delega o trabalho para um objeto estratégia ao invés de executá-lo por conta própria.
+
+O contexto não é responsável por selecionar um algoritmo apropriado para o trabalho. Ao invés disso, o cliente passa a estratégia desejada para o contexto. Na verdade, o contexto não sabe muito sobre as estratégias. Ele trabalha com todas elas através de uma interface genérica, que somente expõe um único método para acionar o algoritmo encapsulado dentro da estratégia selecionada.
+
+Desta forma o contexto se torna independente das estratégias concretas, então você pode adicionar novos algoritmos ou modificar os existentes sem modificar o código do contexto ou outras estratégias.
+Em nossa aplicação de navegação, cada algoritmo de roteamento pode ser extraído para sua própria classe com um único método construirRota. O método aceita uma origem e um destino e retorna uma coleção de pontos da rota.
+
+Mesmo dando os mesmos argumentos, cada classe de roteamento pode construir uma rota diferente, a classe navegadora principal não se importa qual algoritmo está selecionado uma vez que seu trabalho primário é renderizar um conjunto de pontos num mapa. A classe tem um método para trocar a estratégia ativa de rotas, então seus clientes, bem como os botões na interface de usuário, podem substituir o comportamento de rotas selecionado por um outro.
+
+ Utilize o padrão Strategy quando você quer usar diferentes variantes de um algoritmo dentro de um objeto e ser capaz de trocar de um algoritmo para outro durante a execução.
+
+O padrão Strategy permite que você altere indiretamente o comportamento de um objeto durante a execução ao associá-lo com diferentes sub-objetos que pode fazer sub-tarefas específicas em diferentes formas.
+
+Utilize o Strategy quando você tem muitas classes parecidas que somente diferem na forma que elas executam algum comportamento.
+
+O padrão Strategy permite que você extraia o comportamento variante para uma hierarquia de classe separada e combine as classes originais em uma, portando reduzindo código duplicado.
+
+Utilize o padrão para isolar a lógica do negócio de uma classe dos detalhes de implementação de algoritmos que podem não ser tão importantes no contexto da lógica.
+
+O padrão Strategy permite que você isole o código, dados internos, e dependências de vários algoritmos do restante do código. Vários clientes podem obter uma simples interface para executar os algoritmos e trocá-los durante a execução do programa.
+
+Utilize o padrão quando sua classe tem um operador condicional muito grande que troca entre diferentes variantes do mesmo algoritmo.
+
+O padrão Strategy permite que você se livre dessa condicional ao extrair todos os algoritmos para classes separadas, todos eles implementando a mesma interface. O objeto original delega a execução de um desses objetos, ao invés de implementar todas as variantes do algoritmo.
+
+
+prós
+
+
+    Você pode trocar algoritmos usados dentro de um objeto durante a execução.
+    Você pode isolar os detalhes de implementação de um algoritmo do código que usa ele.
+    Você pode substituir a herança por composição.
+    Princípio aberto/fechado. Você pode introduzir novas estratégias sem mudar o contexto.
+
+contras
+
+ Se você só tem um par de algoritmos e eles raramente mudam, não há motivo real para deixar o programa mais complicado com novas classes e interfaces que vêm junto com o padrão.
+Os Clientes devem estar cientes das diferenças entre as estratégias para serem capazes de selecionar a adequada.
+Muitas linguagens de programação modernas tem suporte do tipo funcional que permite que você implemente diferentes versões de um algoritmo dentro de um conjunto de funções anônimas. Então você poderia usar essas funções exatamente como se estivesse usando objetos estratégia, mas sem inchar seu código com classes e interfaces adicionais.
+
+

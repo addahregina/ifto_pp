@@ -37,3 +37,8 @@ no construtor pode passar atributos ou não
 construtor padrão não tem parâmetros, caso seja criado um construtor com parâmentros, o outro diexa de existir
 
 CTRL ALT N - Refactor -> Inline -> instancia o objeto no local da chamada // é seguro se uilizada em apenas um local
+
+//AULA 20 DE MARÇO
+ATIVIDADE 
+https://github.com/manoelcampos/padroes-projetos/tree/master/comportamentais/template-method
+TOPICO 6

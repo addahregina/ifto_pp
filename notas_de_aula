@@ -1,7 +1,16 @@
 AULA 14 AGO
+
+69/mês 799 à vista
+359/mês 3.999 à vista
+
+22,26
+27,5%
+
+
 O que estiver em amarelo nos diagramas, são de implementação obrigatória
 Método em itálico - abstrato
 Na interface todos os métodos são abstratos por padrão
+No stategy interfaces são comportamentos
 
 Seta contínua - Implementada dentro da classe, atributo na origem;
 seta dupla: na origem tem atributo da classe de destino e vice-versa
@@ -42,6 +51,13 @@ imprimir(Collection<Cliente> lista){
  lista.remove(0);
  lista.forEach(c->print(c))
 }
+
+List x Collection (não possuem metodos que alteram a lista)
+
+//----------------------------------------
+
+Exemplo Boletos
+
 
 A classe estrategista não herda 
 

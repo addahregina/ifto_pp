@@ -1,3 +1,50 @@
+AULA 14 AGO
+O que estiver em amarelo nos diagramas, são de implementação obrigatória
+Método em itálico - abstrato
+Na interface todos os métodos são abstratos por padrão
+
+Seta contínua - Implementada dentro da classe, atributo na origem;
+seta dupla: na origem tem atributo da classe de destino e vice-versa
+
+seta pontilhada - dependência não possui atributo da classe de destino
+implementação da interface, não há herança
+notações UML
++ público
+- privado
+# protegido
+
+//exemplo LSP(Liskov Substitution Principle)
+meuMetodo(Veiculo v){
+  v.ligar();
+}
+
+interface Veiculo{
+  ligar();
+}
+
+class Carro extends Veiculo{
+  ligar(){
+    ligarMOtor();
+    ligarFarois();
+  }
+  ligarMoto(){}
+  ligarFarois(){}
+}
+
+//-----------------------------
+
+imprimir(List<Cliente> lista){
+ lista.remove(0);
+ lista.forEach(c->print(c))
+}
+
+imprimir(Collection<Cliente> lista){
+ lista.remove(0);
+ lista.forEach(c->print(c))
+}
+
+A classe estrategista não herda 
+
 SOLID
 SRP Princípio da responsabilidade única
 OCP Princípio aberto e fechado
@@ -13,18 +60,11 @@ DIP - Princípio da inversão de dependência (inversão vs injeção)
 Classe concreta é obrigada a utilizar todos os métodos, a classe abstrata não.
 
 IntelliJ -> Project -> Java -> Maven
-Implementar métodos para interface IntelliJ -> Alt Enter (Interface name) -> Implement Interface();
+Implementar métodos para interface IntelliJ -> Alt Enter (Interface name) ->    o que você entendeu sobre o padrão Strategy; 
+    para que ele serve; 
+    quais vantagens e desvantagens. Implement Interface();
 
 Return to Interface -> Ctrl+Click (Interface name)
-
-Seta contínua - Implementada dentro da classe, atributo na origem;
-seta dupla: na origem tem atributo da classe de destino e vice-versa
-
-seta pontilhada - dependência não possui atributo da classe de destino
-notações UML
-+ público
-- privado
-# protegido
 
 composição: um objeto dentro de outro objeto
 

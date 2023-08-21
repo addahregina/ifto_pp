@@ -7,6 +7,8 @@ return null;
 por
 throw new UnsupportedOperationException("Método não implmentado");
 
+---
+exceção checada, é necessário tratar a exceção onde pode ocorrer, pode ser delegada
 
 AULA 14 AGO
 

@@ -1,3 +1,13 @@
+aula 21 AGO
+Dependencia (interface) --------> (classe)
+Associação  (+ attr. interface 1x1 simples, 1xn Lista) _________> Interface
+
+em métodos vazios, substituir 
+return null;
+por
+throw new UnsupportedOperationException("Método não implmentado");
+
+
 AULA 14 AGO
 
 69/mês 799 à vista
@@ -98,3 +108,6 @@ CTRL ALT N - Refactor -> Inline -> instancia o objeto no local da chamada // é 
 ATIVIDADE 
 https://github.com/manoelcampos/padroes-projetos/tree/master/comportamentais/template-method
 TOPICO 6
+
+
+
